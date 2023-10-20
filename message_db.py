@@ -19,10 +19,10 @@ async def send_message_db(data_db: tuple, message: Union[Message | int], **kwarg
     if m.get('caption'):
         m['caption'] = format_text(m['caption'], user_id=user_id)
 
-    if m['photo']:
+    if m.get('photo'):
         return await bot.send_photo(user_id, **m)
 
-    if m['video']:
+    if m.get('video'):
         return await bot.send_video(user_id, **m)
 
-    return await bot.send_message(user_id, **m)
+    return await bot.send_message(user_id, disable_web_page_preview=True, **m)

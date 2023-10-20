@@ -131,5 +131,5 @@ async def connect_database():
 
 
 loop = asyncio.get_event_loop()
-tasks = asyncio.wait([(connect_database())])
+tasks = asyncio.wait([loop.create_task(connect_database())])
 loop.run_until_complete(tasks)

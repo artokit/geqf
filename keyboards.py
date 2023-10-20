@@ -50,6 +50,16 @@ admin_choice = InlineKeyboardBuilder()
 admin_choice.row(InlineKeyboardButton(text='Сохранить', callback_data='agree'))
 admin_choice.row(InlineKeyboardButton(text='Не сохранять', callback_data='disagree'))
 
+demo = InlineKeyboardBuilder()
+demo.add(
+    InlineKeyboardButton(text='LOSE 😓', callback_data='next-0'),
+    InlineKeyboardButton(text='WIN 💥', callback_data='start_demo')
+)
+
+end_demo = InlineKeyboardBuilder()
+end_demo.row(InlineKeyboardButton(text='🚀 REGISTRATION 🛩', callback_data='next-1'))
+end_demo.row(InlineKeyboardButton(text='💰MENU💰 ', callback_data='next-0'))
+
 
 def get_default_edit_message(message_id: int):
     return [

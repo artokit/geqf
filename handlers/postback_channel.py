@@ -2,7 +2,6 @@ import aiosqlite
 from aiogram import Router, F
 from aiogram.types import Message
 from message_db import send_message_db
-from settings import bot
 from db import Postback, BotMessage
 
 router = Router()
@@ -17,7 +16,7 @@ async def channel_post_handler(message: Message):
 
         try:
             await Postback.add(user_id)
-            message_db = await BotMessage.get(pk=2)
+            message_db = await BotMessage.get(pk=6)
             await send_message_db(message_db[0], user_id)
         except aiosqlite.IntegrityError:
             pass
